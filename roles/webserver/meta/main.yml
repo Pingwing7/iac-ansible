@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Adel Massaadee - s1194099
+  description: webserver role to install PHP and Apache
+  company: Mas Infrastructure As Code b.v.
+  license: geen, ga je gang
+
+  min_ansible_version: 2.18.2
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+
+
+  galaxy_tags:
+    - windesheim
