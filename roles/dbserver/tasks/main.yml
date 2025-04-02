@@ -1,0 +1,25 @@
+---
+- name: Install mariadb
+  apt:
+    name: mariadb-server
+    state: present
+  become: yes
+  notify: restart_mariadb
+
+- name: Sart mariadb
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Add mariadb user
+  mysql_user:
+    name: "{{ mysql_dbuser }}"
+    password: "{{ mysql_dbpassword }}"
+    priv: "*.*:ALL,GRANT"
+    host: '%'
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  become: yes
+  notify: restart_mariadb
